@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <form id='vädret'>
         <label id="stadnamn">Sök Stad</label>
-        <input type='text' id="stad" placeholder = 'Stad'>
+        <input type='text' id="stad">
         <input type='submit' id="submitstad" value="Sök">
     </form>
-
-    <div class="description"></div>
-    <div class="icon"></div>
-    <div class="temperatur"></div>
-    <div class="vindhastighet"></div>
-    <div class="luftfuktighet"></div>
-
+    
+    
+    <p class="icon"></p>
+    <div class=" content">
+        <h1 class="description">Beskrivningen</h1>
+        <div class="temperatur-section">
+            <h1 class="temperatur">25</h1>
+            <span> °C</span>
+        </div>
+        <h1 class="vindhastighet">vindhastighet</h1>
+        <h1 class="luftfuktighet">luftfuktighet</h1>
+    </div>
 
 
 

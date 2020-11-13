@@ -4,7 +4,7 @@
 let form = document.querySelector('#vädret');
 form.addEventListener('click', function(event){
     event.preventDefault();
-
+    
     let stadNameInput = document.querySelector('#stad');
 
     let cityName = stadNameInput.value;
@@ -21,16 +21,34 @@ function(data){
     console.log(data);
     let description = data.weather[0].description;
     let icon = data.weather[0].icon;
-    let temperatur = data.main.temp;
+    let temperatur = Math.round(data.main.temp);
     let vindhastighet = data.wind.speed;
     let luftfuktighet = data.main.humidity;
+    
+    let beskriving = document.querySelector('.description');
+    let temp = document.querySelector('.temperatur');
+    let vind = document.querySelector('.vindhastighet');
+    let luftfuktigt = document.querySelector('.luftfuktighet');
+    
+    beskriving.textContent = description;
+    temp.textContent = temperatur;
+    vind.textContent = vindhastighet;
+    luftfuktigt.textContent = luftfuktighet;
+    
+    
 }
 ).catch(
 function(error){
     console.error('något har gått fel');
+
 })
 
 })
+
+
+    
+
+
 
 
 
