@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh ;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(107, 153, 153);
+}
+
+#vädret{
+    color: azure;
+    font-size: 1rem;
+}
+
+#submitstad{
+    color: azure;
+    background-color: black;
+    padding: 0 1rem;
+}
