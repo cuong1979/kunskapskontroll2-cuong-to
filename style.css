@@ -5,31 +5,32 @@
 }
 
 body{
-    height: 100vh ;
+    background-image: url(/img/wp5840060.png);
     display: flex;
-    /* justify-content: center; */
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(107, 153, 153);
+    justify-content: center;
     font-family: sans-serif;
 
 }
 
 .content{
-    
-    height: 50vh;
-    width: 50vw;
+    background-image: url(/img/wp5840060.png);
+    background-size: cover;
+    /* background-color:rgb(128, 128, 128); */
+    min-height: 70vh;
+    min-width: 50vw;
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+     border: solid 2px black;
+    border-radius: 1rem; 
 }
 form{
     height: 20vh;
     min-width: 50vw;
-    
+    text-align: center;
     padding-top: 2rem;
 }
 
@@ -47,14 +48,20 @@ input, label{
     color: azure;
     background-color: black;
     padding: 0 1rem;
+    border: none;
+    border-radius: .5rem;
 }
 
 .temperatur-section{
     display: flex;
     align-items: center;
-    
+    color: #fff;
 }
- 
+
+.description, .vindhastighet, .luftfuktighet{
+    color: #fff;
+}
+
 span{
     font-size: 2rem;
 }
