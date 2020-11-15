@@ -1,60 +1,36 @@
+// skapa en variable till min key
+const apiKey = '56e3472f920d06a692d2b0fd0ee40b76';
+// skapa en variable till stad 
+let cityName = 'landskrona';
+// skapa en url till API och lägg in cityName variable och API key variable
+const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
 
-//hämta from och se skapa en click event 
-let form = document.querySelector('#vädret');
-form.addEventListener('click', function(event){
-    event.preventDefault();
-    
-// hämta input så när skriva in stad som man vill söka för
-    let stadNameInput = document.querySelector('#stad');
-    let cityName = stadNameInput.value;
-
-    // här min API keys kod
- let apiKey = '56e3472f920d06a692d2b0fd0ee40b76'
- // här skapa jag add en cityname så man samma länka med väder app
- let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`
+// hämtas alla elemnet
+let beskrivning = document.querySelector('h1');
+let imgIkon = document.querySelector('.icon');
+let temp = document.querySelector('.temperature');
+let vind = document.querySelector('.vindshastigt');
+let luft = document.querySelector('.luftfuktighet');
 
 
- fetch(url).then(
-    function(respsone){
-        return respsone.json();
-}
-).then(
-function(data){
-    console.log(data);
-    // här hämta jag alla info jag behöver
-    let description = data.weather[0].description;
-    let icon = data.weather[0].icon;
-    let temperatur = Math.round(data.main.temp);
-    let vindhastighet = data.wind.speed;
-    let luftfuktighet = data.main.humidity;
-    
-    // här lägga jag in mina info så man kan läsa den webbläsare
-   let beskriving = document.querySelector('.description');
-   let temp = document.querySelector('.temperatur');
-   let vind = document.querySelector('.vindhastighet');
-   let luftfuktigt = document.querySelector('.luftfuktighet');
-
-    beskriving.textContent = description;
-    temp.textContent = temperatur;
-    vind.textContent = vindhastighet;
-    luftfuktigt.textContent = luftfuktighet;
-
-    
-    
-    
-}
-).catch(
-function(error){
-    console.error('något har gått fel');
-
+// fetch(url).then((response => response.json())).then(data => console.log(data));
+// hämta url/API gör om den till .json 
+fetch(url).then(function(response){
+        return response.json();
+    // hämta alla data vi behöver och sortera dom
+}).then(function(data){
+    let beskrivningen = data.weather[0].description;
+    let väderIcon = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+    let väderTemp = Math.round(data.main.temp);
+    let väderVind = data.wind.speed;
+    let väderluftfuktig = data.main.humidity;
+   
+// byt elemneter som vi har hämtat från data
+    beskrivning.innerText = beskrivningen;
+    imgIkon.src = väderIcon;
+    temp.innerText = väderTemp;
+    vind.innerText = väderVind;
+    luft.innerText = väderluftfuktig;
+    //console.log(väderluftfuktig);
+ 
 })
-
-})
-
-
-    
-
-
-
-
-
