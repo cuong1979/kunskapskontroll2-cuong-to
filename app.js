@@ -1,8 +1,9 @@
     // skapa en variable till min key
-    const apiKey = '56e3472f920d06a692d2b0fd0ee40b76';
+    const apiKey = '56e3472f920d06a692d2b0fd0ee40b76'; 
+   
 
     // skapa en variable till stad 
-    let cityName;
+    //let cityName;
 
     // hämtas alla elemnet
     let beskrivning = document.querySelector('h1');
@@ -53,7 +54,7 @@
     
     //hämta function från väderTemp 
     changeColor(väderTemp);
-
+    ändraFärgText(väderluftfuktig);
     // fånga fel 
   }).catch(function() {
     alert('Stad som du har sökt finns inte');
@@ -80,5 +81,23 @@ function changeColor(väderTemp) {
 
 };
 
+let ändraLuftFuktighet = document.querySelector('.luftfuktighet')
 
+function ändraFärgText(väderluftfuktig){
+    if(väderluftfuktig <= 20){
+        ändraLuftFuktighet.style.color = 'blue'
+    }
+    else if(väderluftfuktig <= 40){
+        ändraLuftFuktighet.style.color = 'navy'
+    }
+    else if(väderluftfuktig <= 60){
+        ändraLuftFuktighet.style.color = 'yellow'
+    }
+    else if(väderluftfuktig <= 80){
+        ändraLuftFuktighet.style.color = 'orange'
+    }
+    else{
+        ändraLuftFuktighet.style.color = 'red'
+    }
+}
 
