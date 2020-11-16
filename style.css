@@ -18,8 +18,8 @@ body {
 }
 
 .contanier {
-    height: 70vh;
-    width: 50vw;
+    min-height: 70vh;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,6 +27,7 @@ body {
     justify-content: space-around;
     border: solid 2px black;
     border-radius: 1rem;
+    background: linear-gradient(rgb(47, 150, 163), rgb(48, 63, 143));
 }
 
 .väder {

@@ -1,15 +1,15 @@
-// skapa en variable till min key
-const apiKey = '56e3472f920d06a692d2b0fd0ee40b76';
+    // skapa en variable till min key
+    const apiKey = '56e3472f920d06a692d2b0fd0ee40b76';
 
-// skapa en variable till stad 
-let cityName;
+    // skapa en variable till stad 
+    let cityName;
 
-// hämtas alla elemnet
-let beskrivning = document.querySelector('h1');
-let imgIkon = document.querySelector('.icon');
-let temp = document.querySelector('.temperature');
-let vind = document.querySelector('.vindshastigt');
-let luft = document.querySelector('.luftfuktighet');
+    // hämtas alla elemnet
+    let beskrivning = document.querySelector('h1');
+    let imgIkon = document.querySelector('.icon');
+    let temp = document.querySelector('.temperature');
+    let vind = document.querySelector('.vindshastigt');
+    let luft = document.querySelector('.luftfuktighet');
 
     // hämta button från html för att event
     let btn = document.querySelector('button');
@@ -44,27 +44,24 @@ let luft = document.querySelector('.luftfuktighet');
     let väderVind = data.wind.speed;
     let väderluftfuktig = data.main.humidity;
 
-// byt elemneter som vi har hämtat från data
-beskrivning.innerText = beskrivningen;
-imgIkon.src = väderIcon;
-temp.innerText = `${väderTemp} °C` ;
-vind.innerText =  `vindhastighet ${väderVind}` ;
-luft.innerText =  `luftfukighet ${väderluftfuktig}` ;
-//console.log(väderluftfuktig);
-changeColor(väderTemp);
+    // byt elemneter som vi har hämtat från data
+    beskrivning.innerText = beskrivningen;
+    imgIkon.src = väderIcon;
+    temp.innerText = `${väderTemp} °C` ;
+    vind.innerText =  `vindhastighet ${väderVind}` ;
+    luft.innerText =  `luftfukighet ${väderluftfuktig}` ;
+    
+    //hämta function från väderTemp 
+    changeColor(väderTemp);
 
+    // fånga fel 
   }).catch(function() {
     alert('Stad som du har sökt finns inte');
 });
        
 };
 
-
-// hongkong och hawaii fungera inte 
-
-
-
-
+//skapa if-sats så man kan ändra bakgrund bilder från olika tempaturer.
 function changeColor(väderTemp) {
 
     if (väderTemp <= -10) {
