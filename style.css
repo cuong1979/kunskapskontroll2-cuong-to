@@ -25,8 +25,9 @@ body{
     justify-content: space-around;
     background-color: yellowgreen;
     border-radius: .5rem;
-    background-image: 
-   
+    background-image: url(/Img/bakgrundbild.png);
+    background-repeat: no-repeat;
+   background-size: cover;
 }
 
 .temperatur-section{
