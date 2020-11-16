@@ -54,29 +54,23 @@ fetch(url).then(function(response){
     
 }) 
 let body = document.querySelector('body');
-const frusen = -25
-const isKall = -10
-const välKall = 0;
-const kall = 5;
-const varm = 10;
-const välVarm = 20;
-const het = 30;
+
 
 function changeColor(väderTemp) {
 
-    if (väderTemp <= frusen) {
+    if (väderTemp <= -25) {
         body.style.backgroundColor = 'red';
-    } else if (väderTemp <= isKall) {
+    } else if (väderTemp <= -10 && väderTemp > -25 ) {
         body.style.backgroundColor = 'blue';
-    } else if (väderTemp <= välKall) {
+    } else if (väderTemp <= 0 && väderTemp > -10) {
         body.style.backgroundColor = 'yellow';
-    } else if (väderTemp <= kall) {
+    } else if (väderTemp <= 5 && väderTemp > 0) {
         body.style.backgroundColor = 'orange';
-    } else if (väderTemp <= varm) {
+    } else if (väderTemp <= 10 && väderTemp > 5) {
         body.style.backgroundColor = 'navy';
-    } else if (väderTemp <= välVarm) {
+    } else if (väderTemp <= 20 && väderTemp > 10) {
         body.style.backgroundColor = 'olive';
-    } else if (väderTemp <= het && weatherTemperatur > 40) {
+    } else if (väderTemp <= 30 && weatherTemperatur > 40) {
         body.style.backgroundColor = 'grey';
     } else {
         body.style.backgroundColor = 'pink';
