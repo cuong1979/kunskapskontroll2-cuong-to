@@ -25,9 +25,7 @@ body {
     justify-content: center;
     align-items: center;
     justify-content: space-around;
-   /*  background-image: url(/Img/bakgrundbild.png);
-    background-size: cover;
-    background-repeat: no-repeat; */
+    border: solid 2px black;
     border-radius: 1rem;
 }
 
