@@ -13,13 +13,13 @@
     let luft = document.querySelector('.luftfuktighet');
 
     // hämta button från html för att event
-    let btn = document.querySelector('button');
+    let submit = document.querySelector('.stad-btn');
      
     // hämta input med class 
      let stadNamninput = document.querySelector('.stad-input');
-     let body = document.querySelector('body');
+     
      // button bli min event med click
-    btn.addEventListener('click', function(event){
+    submit.addEventListener('click', function(event){
     //  preventDefault gör att sök text i den fallen inte försvinner.
     event.preventDefault();
    
@@ -37,7 +37,7 @@
     // hämta url/API gör om den till .json 
     fetch(url).then(function(response){
         
-        console.log(response);
+        
         return response.json();
     
         // hämta alla data vi behöver och sortera dom
@@ -68,7 +68,8 @@
 
 //skapa if-sats så man kan ändra bakgrund bilder från olika tempaturer.
 function changeColor(väderTemp) {
-
+    let body = document.querySelector('body');
+    
     if (väderTemp <= -10) {
         body.style.backgroundImage = "url('/Img/vinter-10.jpg')";
     } else if (väderTemp <= 0) {
@@ -104,4 +105,6 @@ function ändraFärgText(väderluftfuktig){
         ändraLuftFuktighet.style.color = 'red'
     }
 }
+
+
 
