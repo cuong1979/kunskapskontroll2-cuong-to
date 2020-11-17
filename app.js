@@ -3,7 +3,7 @@
    
 
     // skapa en variable till stad 
-    //let cityName;
+    let cityName;
 
     // hämtas alla elemnet
     let beskrivning = document.querySelector('h1');
@@ -36,8 +36,11 @@
     // fetch(url).then((response => response.json())).then(data => console.log(data));
     // hämta url/API gör om den till .json 
     fetch(url).then(function(response){
-    return response.json();
-    // hämta alla data vi behöver och sortera dom
+        
+        console.log(response);
+        return response.json();
+    
+        // hämta alla data vi behöver och sortera dom
     }).then(function(data){
     let beskrivningen = data.weather[0].description;
     let väderIcon = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
@@ -56,8 +59,9 @@
     changeColor(väderTemp);
     ändraFärgText(väderluftfuktig);
     // fånga fel 
-  }).catch(function() {
+  }).catch(function(error) {
     alert('Stad som du har sökt finns inte');
+    console.log(error)
 });
        
 };
@@ -73,7 +77,7 @@ function changeColor(väderTemp) {
         body.style.backgroundImage = "url('/Img/snö5.jpg')";
     } else if (väderTemp <= 10) {
         body.style.backgroundImage = "url('/Img/vår10.jpg')";
-    } else if (väderTemp <= 20 && weatherTemperatur > 30) {
+    } else if (väderTemp <= 20 && väderTemp > 30) {
         body.style.backgroundImage = "url('/Img/somma20.jpg')";
     } else {
         body.style.backgroundImage = "url('/Img/somma30.jpg')";

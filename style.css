@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url(/Img/träd.jpg);
+    background-image: url(/Img/bakgrund.jpg);
     background-size: cover;
     background-repeat: no-repeat;
    
@@ -19,7 +19,6 @@ body {
 
 .contanier {
     min-height: 70vh;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
