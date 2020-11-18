@@ -37,10 +37,18 @@ body {
 }
 
 #stadnamn {
+    font-size: 2rem;
     color: #ffffff;
 }
 
+.stad-input{
+    font-size: 2rem;
+    
+   
+}
+
 .stad-btn {
+    font-size: 2rem;
     background-color: #000000;
     color: white;
     padding: 0 1rem;
@@ -54,11 +62,11 @@ img {
 
 .beskrivning {
     color: #ffffff;
-    text-transform: uppercase;
-}
-
+   text-transform:capitalize;
+ }
 
 p {
     color: #ffffff;
     font-size: 2.5rem;
+    text-transform: capitalize;
 }

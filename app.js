@@ -25,21 +25,23 @@
    
     // skapa variable till för att pusha upp i input fälten.
     cityName = stadNamninput.value;
-    hämtaVäder();
+    hämtaVäder(cityName);
     
 });
 
- function hämtaVäder(){
+ function hämtaVäder(cityName){
     // skapa en url till API och lägg in cityName variable och API key variable
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
 
     // fetch(url).then((response => response.json())).then(data => console.log(data));
     // hämta url/API gör om den till .json 
     fetch(url).then(function(response){
-        
-        
-        return response.json();
-    
+        if(response.status >= 200 && response.status < 300){
+            return response.json();
+        }else{
+            throw 'Något gick fel';
+        }
+       
         // hämta alla data vi behöver och sortera dom
     }).then(function(data){
     let beskrivningen = data.weather[0].description;
@@ -60,6 +62,9 @@
     ändraFärgText(väderluftfuktig);
     // fånga fel 
   }).catch(function(error) {
+      
+
+      
     alert('Stad som du har sökt finns inte');
     console.log(error)
 });
@@ -70,15 +75,15 @@
 function changeColor(väderTemp) {
     let body = document.querySelector('body');
     
-    if (väderTemp <= -10) {
+    if (väderTemp <= -10 && väderTemp < 0) {
         body.style.backgroundImage = "url('/Img/vinter-10.jpg')";
-    } else if (väderTemp <= 0) {
+    } else if (väderTemp <= 0 && väderTemp < 5) {
         body.style.backgroundImage = "url('/Img/vinter0.jpg')";
-    } else if (väderTemp <= 5) {
+    } else if (väderTemp <= 5 && väderTemp < 10) {
         body.style.backgroundImage = "url('/Img/snö5.jpg')";
-    } else if (väderTemp <= 10) {
+    } else if (väderTemp <= 10 && väderTemp < 20) {
         body.style.backgroundImage = "url('/Img/vår10.jpg')";
-    } else if (väderTemp <= 20 && väderTemp > 30) {
+    } else if (väderTemp <= 20 && väderTemp < 30) {
         body.style.backgroundImage = "url('/Img/somma20.jpg')";
     } else {
         body.style.backgroundImage = "url('/Img/somma30.jpg')";
