@@ -33,9 +33,10 @@
     // skapa en url till API och lägg in cityName variable och API key variable
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
 
-    // fetch(url).then((response => response.json())).then(data => console.log(data));
     // hämta url/API gör om den till .json 
     fetch(url).then(function(response){
+
+        // om det bli error status untanför 300 upp då kasta det ut ett error till ett felmeddandet
         if(response.status >= 200 && response.status < 300){
             return response.json();
         }else{
@@ -62,10 +63,8 @@
     ändraFärgText(väderluftfuktig);
     // fånga fel 
   }).catch(function(error) {
-      
-
-      
-    alert('Stad som du har sökt finns inte');
+      // visa fel meddelandet 
+     alert('Stad som du har sökt finns inte');
     console.log(error)
 });
        
@@ -73,6 +72,7 @@
 
 //skapa if-sats så man kan ändra bakgrund bilder från olika tempaturer.
 function changeColor(väderTemp) {
+    //hämta body i html 
     let body = document.querySelector('body');
     
     if (väderTemp <= -10 && väderTemp < 0) {
@@ -91,8 +91,11 @@ function changeColor(väderTemp) {
 
 };
 
+
+// hämta class luftfuktig i html.
 let ändraLuftFuktighet = document.querySelector('.luftfuktighet')
 
+//skapa if-sats så man kan ändra bakgrund bilder från olika tempaturer.
 function ändraFärgText(väderluftfuktig){
     if(väderluftfuktig <= 20){
         ändraLuftFuktighet.style.color = 'blue'
